@@ -1,7 +1,7 @@
 import pygame
 import random
 from pygame.locals import RLEACCEL
-
+from gameSprite import GameSprite
 from screen import Screen
 
 
@@ -26,3 +26,6 @@ class Cloud(pygame.sprite.Sprite):
         self.rect.move_ip(-5, 0)
         if self.rect.right < 0:
             self.kill()
+
+    def clone(self):
+        return Cloud()

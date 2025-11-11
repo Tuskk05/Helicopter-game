@@ -2,8 +2,8 @@ import pygame
 import random
 import math
 from pygame.locals import RLEACCEL
-
 from screen import Screen
+from gameSprite import GameSprite
 
 
 # Define the enemy object extending pygame.sprite.Sprite
@@ -36,3 +36,7 @@ class Bird(pygame.sprite.Sprite):
         self.rect.move_ip(speed_x, speed_y)
         if self.rect.right < 0:
             self.kill()
+    
+    
+    def clone(self):
+        return Bird()
