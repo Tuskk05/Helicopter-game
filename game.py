@@ -10,10 +10,6 @@ from pygame.locals import (
 
 from screen import Screen
 from player import Player
-from bird import Bird
-from cloud import Cloud
-from umbrella import Umbrella
-from mountain import Mountain
 
 class Game:
     def __init__(self, factory_flying, factory_landscape):
@@ -38,8 +34,8 @@ class Game:
         self._player = Player()
         # Birds, Umbrellas, etc.
         self._flying_sprites = pygame.sprite.Group()
-        # Clouds, Mountains, etc.     
-        self._landscape_sprites = pygame.sprite.Group()  
+        # Clouds, Mountains, etc.
+        self._landscape_sprites = pygame.sprite.Group()
         self._all_sprites = pygame.sprite.Group()
         self._all_sprites.add(self._player)
 
@@ -58,14 +54,18 @@ class Game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self._user_quits = True
-
             elif event.type in self._factory_flying.event_types:
-                new_flying = self._factory_flying.make(event.type)
+                new_flying = self._factory_flying.make(
+                    event.type,
+                    self._flying_sprites
+                )
                 self._flying_sprites.add(new_flying)
                 self._all_sprites.add(new_flying)
-
             elif event.type in self._factory_landscape.event_types:
-                new_land = self._factory_landscape.make(event.type)
+                new_land = self._factory_landscape.make(
+                    event.type,
+                    self._landscape_sprites
+                )
                 self._landscape_sprites.add(new_land)
                 self._all_sprites.add(new_land)
 
@@ -73,7 +73,7 @@ class Game:
         pressed_keys = pygame.key.get_pressed()
         self._player.update(pressed_keys)
 
-        # Actualitza enemics i paisatge
+        # Updates enemies and landscapes
         self._flying_sprites.update()
         self._landscape_sprites.update()
 
