@@ -22,12 +22,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.surf.get_rect(
             center=(Screen.width//4, Screen.height//2)
         )
-        """        x
-             +------>
-             |
-          y  |
-             v
-        """
+
         self.move_up_sound = pygame.mixer.Sound("sounds_music/Rising_putter.ogg")
         self.move_up_sound.set_volume(0.5)
         self.move_down_sound = pygame.mixer.Sound("sounds_music/Falling_putter.ogg")

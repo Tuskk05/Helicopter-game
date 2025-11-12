@@ -17,7 +17,7 @@ pygame.init()
 screen = pygame.display.set_mode((Screen.width, Screen.height))
 
 # Choose difficulty level
-level = 'difficult'
+level = 'easy'
 
 if level == 'easy':
     factory_flying = FactorySprites([Bird(), Umbrella(), Jet(), Missile()],[1500, 2000, 2000, 3000], pygame.USEREVENT + 1)

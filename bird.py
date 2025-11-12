@@ -5,7 +5,6 @@ from pygame.locals import RLEACCEL
 from screen import Screen
 from gameSprite import GameSprite
 
-
 # Define the enemy object extending pygame.sprite.Sprite
 # Instead of a surface, we use an image for a better looking sprite
 class Bird(pygame.sprite.Sprite):

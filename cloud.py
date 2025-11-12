@@ -4,7 +4,6 @@ from pygame.locals import RLEACCEL
 from gameSprite import GameSprite
 from screen import Screen
 
-
 # Define the cloud object extending pygame.sprite.Sprite
 # Use an image for a better looking sprite
 class Cloud(pygame.sprite.Sprite):
